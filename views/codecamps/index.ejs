@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To CodeCamp!</h1>
+             <p>View our hand-picked Code camps from all over the world</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/codecamps/new">Add New CodeCamp</a>
+             </p>
+             <p>
+                <form action="/codecamps" method="GET" class="form-inline">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="search" placeholder="CodeCamp Search...">
+                        <input class="btn btn-default" type="submit" value="Search" class>
+                    </div>
+                </form>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% codecamps.forEach(function(codecamp){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= codecamp.image %>">
+                   <div class="caption">
+                       <h4><%= codecamp.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/codecamps/<%= codecamp._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

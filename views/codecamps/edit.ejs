@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Edit <%= codecamp.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/codecamps/<%= codecamp._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="codecamp[name]" value="<%= codecamp.name %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="codecamp[image]" value="<%= codecamp.image %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="codecamp[description]" value="<%= codecamp.description %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/codecamps">Go Back</a>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>
+
